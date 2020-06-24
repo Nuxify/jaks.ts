@@ -1,7 +1,9 @@
 require('dotenv').config()
 
+const DEBUG = process.env.NODE_ENV !== 'production'
+
 export default {
-  mode: 'universal',
+  mode: 'spa',
   server: {
     port: process.env.APP_PORT,
     host: process.env.APP_HOST
@@ -53,7 +55,13 @@ export default {
         vmid: 'og:image'
       }
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css?family=Poppins&display=swap'
+      }
+    ]
   },
   /*
    ** Customize the progress-bar color
@@ -62,7 +70,7 @@ export default {
   /*
    ** Global CSS
    */
-  css: [],
+  css: ['@/assets/css/global.css'],
   /*
    ** Plugins to load before mounting the App
    */
@@ -86,18 +94,6 @@ export default {
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv'
   ],
-  /*
-   ** Axios module configuration
-   ** See https://axios.nuxtjs.org/options
-   */
-  axios: {
-    debug: process.env.NODE_ENV !== 'production',
-    headers: {
-      common: {
-        Accept: 'application/json, text/plain, */*'
-      }
-    }
-  },
   /**
    *  PWA module configuration
    *  https://pwa.nuxtjs.org/setup.html
@@ -108,11 +104,23 @@ export default {
     },
     manifest: {
       name: process.env.APP_NAME,
+      // eslint-disable-next-line @typescript-eslint/camelcase
       short_name: process.env.APP_NAME,
       description: process.env.APP_DESCRIPTION,
+      // eslint-disable-next-line @typescript-eslint/camelcase
       start_url: process.env.APP_URL,
       lang: 'en'
     }
+  },
+  /*
+   ** Axios module configuration
+   ** See https://axios.nuxtjs.org/options
+   */
+  axios: {
+    baseURL: DEBUG
+      ? process.env.STAGING_API_URL
+      : process.env.PRODUCTION_API_URL,
+    debug: DEBUG
   },
   /*
    ** vuetify module configuration

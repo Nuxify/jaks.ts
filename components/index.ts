@@ -1,4 +1,5 @@
-import Logo from './Logo.vue'
-import VuetifyLogo from './VuetifyLogo.vue'
+import Header from './header/Header.vue'
+import Footer from './footer/Footer.vue'
+import Banner from './home/Banner.vue'
 
-export { Logo, VuetifyLogo }
+export { Header, Footer, Banner }
