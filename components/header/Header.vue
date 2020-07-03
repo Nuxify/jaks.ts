@@ -1,6 +1,13 @@
 <template>
   <div class="header__container">
-    <v-app-bar app height="80" class="px-12" flat color="white">
+    <v-app-bar
+      app
+      hide-on-scroll
+      height="80"
+      :class="[{ 'px-12': $vuetify.breakpoint.mdAndUp }]"
+      flat
+      color="white"
+    >
       <v-btn
         v-for="page in pages"
         :key="page.icon"
@@ -10,8 +17,13 @@
         :color="activePage == page.name ? 'primary' : 'accent'"
         class="font-weight-bold text-capitalize hidden-sm-and-down"
         @click="onPageClick(page)"
-        >{{ page.title }}</v-btn
       >
+        {{ page.title }}
+        <div
+          class="slider mt-6"
+          :class="[{ 'd-none': activePage != page.name }]"
+        ></div>
+      </v-btn>
 
       <v-menu offset-y min-width="100vw">
         <template v-slot:activator="{ on, attrs }">
@@ -39,12 +51,15 @@
                 { 'primary--text': activePage == page.name },
                 { 'accent--text': activePage != page.name }
               ]"
-              >{{ page.title }}</v-list-item-title
-            >
+              >{{ page.title }}
+              <div
+                class="slider mt-3"
+                :class="[{ 'd-none': activePage != page.name }]"
+              ></div>
+            </v-list-item-title>
           </v-list-item>
         </v-list>
       </v-menu>
-
       <v-spacer></v-spacer>
       <v-btn color="primary" large class="font-weight-bold">
         Login
@@ -76,14 +91,9 @@ export default class Header extends Vue {
       to: '/'
     },
     {
-      name: 'subject',
-      title: 'Subject',
-      to: '/subject'
-    },
-    {
-      name: 'faculty',
-      title: 'Faculty',
-      to: '/faculty'
+      name: 'users',
+      title: 'Users',
+      to: '/users'
     },
     {
       name: 'about',
@@ -99,6 +109,9 @@ export default class Header extends Vue {
   get activePage(): string {
     if (this.$route.name === undefined || this.$route.name === null) {
       return ''
+    }
+    if (this.$route.name === 'users-id') {
+      return 'users'
     }
     return this.$route.name
   }

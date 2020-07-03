@@ -1,26 +1,55 @@
-# daks.ts
+# Jaks.TS
 
-> A minimalistic Nuxt starter template using TypeScript, Vuetify, and Repository Pattern. Daks!
+A minimalistic Nuxt Jamstack starter template using TypeScript, Vuetify, and API Repository Pattern. JAKS!
 
-## Build Setup
+&nbsp;
 
-```bash
-# install dependencies
-$ npm install
+## Installation
 
-# run lints
-$ npm run lint
-$ npm run lint:fix
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build
-$ npm run start
-
-# generate static project
-$ npm run generate
+```
+git clone git@github.com:Nuxify/jaks.ts.git
 ```
 
-For detailed explanation on how things work, check out [TypeScript Nuxt.js docs](https://typescript.nuxtjs.org/).
+```
+cd jaks.ts/
+```
+
+```
+cp .env.example .env
+```
+
+```
+npm install
+```
+
+> Run **Locally**
+
+```
+npm run dev
+```
+
+> Generate **Static** Pages
+
+```
+npm run build:static
+```
+
+```
+cd dist/
+```
+
+```
+npx serve
+```
+
+&nbsp;
+
+## Contributing
+
+[www.nuxify.tech](https://nuxify.tech/)
+
+&nbsp;
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)

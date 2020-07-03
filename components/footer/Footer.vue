@@ -1,6 +1,8 @@
 <template>
-  <v-footer app>
-    <span class="mx-auto">&copy; {{ new Date().getFullYear() }}</span>
+  <v-footer app color="primary">
+    <span class="mx-auto white--text font-weight-bold"
+      >{{ new Date().getFullYear() }} &copy; {{ appName }}</span
+    >
   </v-footer>
 </template>
 
@@ -9,7 +11,7 @@ import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
 export default class Footer extends Vue {
-  // declare vaiable
-  fixed: boolean = false
+  // * * Data
+  appName?: string = process.env.APP_NAME
 }
 </script>

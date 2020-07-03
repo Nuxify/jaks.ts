@@ -3,7 +3,8 @@ require('dotenv').config()
 const DEBUG = process.env.NODE_ENV !== 'production'
 
 export default {
-  mode: 'spa',
+  target: 'static',
+  mode: 'universal',
   server: {
     port: process.env.APP_PORT,
     host: process.env.APP_HOST
@@ -74,7 +75,7 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/repository', mode: 'client' }],
+  plugins: [{ src: '~/plugins/repository' }],
   /*
    ** Nuxt.js dev-modules
    */
