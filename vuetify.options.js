@@ -5,7 +5,7 @@ export default {
     dark: false,
     themes: {
       light: {
-        primary: '#1B1F73',
+        primary: '#DD1860',
         accent: '#979797',
         secondary: '#D89B4B',
         info: colors.teal.lighten1,

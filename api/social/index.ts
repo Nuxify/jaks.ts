@@ -1,4 +1,4 @@
-import { CommentInterface } from './social.types'
+import { UserResponseInterface } from './social.types'
 import SocialRepository from './social.repository'
 
-export { CommentInterface, SocialRepository }
+export { UserResponseInterface, SocialRepository }

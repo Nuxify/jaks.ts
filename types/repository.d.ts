@@ -1,9 +1,10 @@
-import { CommentInterface } from '~/api/social'
+import { UserResponseInterface } from '~/api/social'
 
 declare module 'vue/types/vue' {
   interface Vue {
     $socialRepository: {
-      GetComments: () => Promise<CommentInterface[]>
+      GetUsers: () => Promise<UserResponseInterface[]>
+      GetUserByID: (id: number) => Promise<UserResponseInterface>
     }
   }
 }

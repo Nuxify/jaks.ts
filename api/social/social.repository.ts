@@ -1,23 +1,42 @@
 import { AxiosInstance, AxiosResponse, AxiosError } from 'axios'
-import { CommentInterface } from './social.types'
+import { UserResponseInterface } from './social.types'
 
-const API_URL: string = '/comments'
+const API_URL: string = '/users'
 
 export default ($axios: AxiosInstance) => ({
   /**
-   * Get all comments
+   * Get all users
    *
    * @return {Promise}
    */
-  GetComments(): Promise<CommentInterface[]> {
+  GetUsers(): Promise<UserResponseInterface[]> {
     return $axios
       .get(`${API_URL}`)
-      .then((response: AxiosResponse<CommentInterface[]>) => {
+      .then((response: AxiosResponse<UserResponseInterface[]>) => {
         const { data } = response
 
-        const comments: CommentInterface[] = data
+        const users: UserResponseInterface[] = data
 
-        return comments
+        return users
+      })
+      .catch((error: AxiosError) => {
+        throw error
+      })
+  },
+
+  /**
+   * Get user by id
+   *
+   * @return {Promise}
+   */
+  GetUserByID(id: number): Promise<UserResponseInterface> {
+    return $axios
+      .get(`${API_URL}/${id}`)
+      .then((response: AxiosResponse<UserResponseInterface>) => {
+        const { data } = response
+        const user: UserResponseInterface = data
+
+        return user
       })
       .catch((error: AxiosError) => {
         throw error

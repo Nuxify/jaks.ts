@@ -1,6 +1,6 @@
 <template>
-  <v-container>
-    <h1>About Page</h1>
+  <v-container class="about__container mx-auto">
+    <h1>About</h1>
   </v-container>
 </template>
 
@@ -16,3 +16,9 @@ import { Component, Vue } from 'nuxt-property-decorator'
 })
 export default class About extends Vue {}
 </script>
+
+<style scoped>
+.about__container {
+  max-width: 1440px;
+}
+</style>

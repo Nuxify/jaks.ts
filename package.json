@@ -1,13 +1,15 @@
 {
-  "name": "daks.ts",
+  "name": "jak.ts",
   "version": "1.0.0",
-  "description": "A minimalistic Nuxt starter template using TypeScript, Vuetify, and Repository Pattern. Daks!",
+  "description": "A minimalistic Nuxt Jamstack starter template using TypeScript, Vuetify, and API Repository Pattern. Jaks!",
   "author": "Karl Anthony Baluyot",
   "private": true,
   "scripts": {
     "dev": "nuxt-ts",
     "build": "nuxt-ts build",
+    "build:static": "nuxt-ts build && nuxt-ts export",
     "generate": "nuxt-ts generate",
+    "export": "nuxt-ts export",
     "start": "nuxt-ts start",
     "lint": "eslint --ext .ts,.js,.vue --ignore-path .gitignore .",
     "lint:fix": "eslint --ext .ts,.js,.vue --fix --ignore-path .gitignore .",
@@ -23,12 +25,12 @@
     }
   },
   "dependencies": {
-    "@nuxt/typescript-runtime": "^0.4.0",
-    "@nuxtjs/axios": "^5.3.6",
+    "@nuxt/typescript-runtime": "^0.4.10",
+    "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@types/jest": "^25.2.3",
-    "nuxt": "^2.0.0",
+    "nuxt": "^2.13.2",
     "nuxt-property-decorator": "^2.7.2"
   },
   "devDependencies": {
