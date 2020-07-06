@@ -9,7 +9,8 @@
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator'
 
-import { Header, Footer } from '~/components'
+import { Footer } from '~/components/footer'
+import { Header } from '~/components/header'
 
 @Component({
   components: {
