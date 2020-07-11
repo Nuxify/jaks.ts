@@ -46,7 +46,7 @@ npx serve
 
 ## Contributing
 
-[www.nuxify.tech](https://nuxify.tech/)
+Made with love from [Nuxify](https://nuxify.tech/)
 
 &nbsp;
 
