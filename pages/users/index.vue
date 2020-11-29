@@ -13,13 +13,13 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({
   head() {
     return {
-      title: 'Users'
+      title: 'Users',
     }
   },
   async asyncData({ app }): Promise<{}> {
     const users = await app.$socialRepository.GetUsers()
     return { users }
-  }
+  },
 })
 export default class Users extends Vue {}
 </script>

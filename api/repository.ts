@@ -29,5 +29,5 @@ export default ($axios: AxiosInstance) => (resource: string): any => ({
 
   delete(id: string): any {
     return $axios.delete(`${resource}/${id}`)
-  }
+  },
 })

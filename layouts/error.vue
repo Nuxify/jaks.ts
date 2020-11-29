@@ -6,9 +6,7 @@
     <h1 v-else>
       {{ otherError }}
     </h1>
-    <NuxtLink to="/">
-      Home page
-    </NuxtLink>
+    <NuxtLink to="/"> Home page </NuxtLink>
   </v-app>
 </template>
 
@@ -23,9 +21,10 @@ interface ErrorResponse {
   layout: 'empty',
   head(this: Error): {} {
     return {
-      title: this.error.statusCode === 404 ? this.pageNotFound : this.otherError
+      title:
+        this.error.statusCode === 404 ? this.pageNotFound : this.otherError,
     }
-  }
+  },
 })
 export default class Error extends Vue {
   // props

@@ -33,15 +33,15 @@ import { Component, Vue } from 'nuxt-property-decorator'
         {
           hid: this.name,
           name: 'description',
-          content: this.name
-        }
-      ]
+          content: this.name,
+        },
+      ],
     }
   },
   asyncData({ app, params }) {
     const user = app.$socialRepository.GetUserByID(parseInt(params.id))
     return user
-  }
+  },
 })
 export default class User extends Vue {
   // * * Data

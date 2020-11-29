@@ -15,8 +15,8 @@ import { Header } from '~/components/header'
 @Component({
   components: {
     Header,
-    Footer
-  }
+    Footer,
+  },
 })
 export default class Default extends Vue {}
 </script>

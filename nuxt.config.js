@@ -1,68 +1,69 @@
-require('dotenv').config()
-
 const DEBUG = process.env.NODE_ENV !== 'production'
+const APP_NAME = 'Nuxify'
+const APP_DESCRIPTION = "Writing Software Like It's Ours"
+const APP_URL = 'http://localhost:3000'
+
+const API_URL = DEBUG
+  ? 'https://jsonplaceholder.typicode.com'
+  : 'https://jsonplaceholder.typicode.com'
 
 export default {
   target: 'static',
-  mode: 'universal',
-  server: {
-    port: process.env.APP_PORT,
-    host: process.env.APP_HOST
-  },
+  ssr: true,
   /*
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + process.env.APP_NAME,
-    title: process.env.APP_NAME || '',
+    titleTemplate: '%s - ' + APP_NAME,
+    title: APP_NAME || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: process.env.APP_DESCRIPTION || ''
+        content: APP_DESCRIPTION || '',
       },
       // OG Tag setup
       // https://vue-meta.nuxtjs.org/api/#meta
       {
         property: 'og:type',
         content: 'website',
-        vmid: 'og:type'
+        vmid: 'og:type',
       },
       {
         property: 'og:title',
-        content: process.env.APP_NAME,
-        vmid: 'og:title'
+        content: APP_NAME,
+        vmid: 'og:title',
       },
       {
         property: 'og:description',
-        content: process.env.APP_DESCRIPTION,
-        vmid: 'og:description'
+        content: APP_DESCRIPTION,
+        vmid: 'og:description',
       },
       {
         property: 'og:site_name',
-        content: process.env.APP_URL,
-        vmid: 'og:site_name'
+        content: APP_URL,
+        vmid: 'og:site_name',
       },
       {
         property: 'og:url',
-        content: process.env.APP_URL,
-        vmid: 'og:url'
+        content: APP_URL,
+        vmid: 'og:url',
       },
       {
         property: 'og:image',
-        content: process.env.APP_URL + '/icon.png',
-        vmid: 'og:image'
-      }
+        content: APP_URL + '/icon.png',
+        vmid: 'og:image',
+      },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Poppins&display=swap'
-      }
-    ]
+        href: 'https://fonts.googleapis.com/css?family=Poppins&display=swap',
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -83,7 +84,7 @@ export default {
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
-    '@nuxtjs/vuetify'
+    '@nuxtjs/vuetify',
   ],
   /*
    ** Nuxt.js modules
@@ -93,7 +94,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv'
+    '@nuxtjs/dotenv',
   ],
   /**
    *  PWA module configuration
@@ -101,27 +102,23 @@ export default {
    */
   pwa: {
     meta: {
-      title: process.env.APP_NAME
+      title: APP_NAME,
     },
     manifest: {
-      name: process.env.APP_NAME,
-      // eslint-disable-next-line @typescript-eslint/camelcase
-      short_name: process.env.APP_NAME,
-      description: process.env.APP_DESCRIPTION,
-      // eslint-disable-next-line @typescript-eslint/camelcase
-      start_url: process.env.APP_URL,
-      lang: 'en'
-    }
+      name: APP_NAME,
+      short_name: APP_NAME,
+      description: APP_DESCRIPTION,
+      start_url: APP_URL,
+      lang: 'en',
+    },
   },
   /*
    ** Axios module configuration
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: DEBUG
-      ? process.env.STAGING_API_URL
-      : process.env.PRODUCTION_API_URL,
-    debug: DEBUG
+    baseURL: API_URL,
+    debug: DEBUG,
   },
   /*
    ** vuetify module configuration
@@ -129,6 +126,6 @@ export default {
    */
   vuetify: {
     customVariables: ['~/assets/variables.scss'],
-    optionsPath: './vuetify.options.js'
-  }
+    optionsPath: './vuetify.options.js',
+  },
 }
