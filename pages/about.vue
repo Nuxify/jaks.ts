@@ -10,9 +10,9 @@ import { Component, Vue } from 'nuxt-property-decorator'
 @Component({
   head() {
     return {
-      title: 'About'
+      title: 'About',
     }
-  }
+  },
 })
 export default class About extends Vue {}
 </script>

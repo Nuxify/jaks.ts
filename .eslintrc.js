@@ -2,14 +2,14 @@ module.exports = {
   root: true,
   env: {
     browser: true,
-    node: true
+    node: true,
   },
   extends: [
     '@nuxtjs/eslint-config-typescript',
     'prettier',
     'prettier/vue',
     'plugin:prettier/recommended',
-    'plugin:nuxt/recommended'
+    'plugin:nuxt/recommended',
   ],
   plugins: ['prettier'],
   // add your custom rules here
@@ -23,23 +23,29 @@ module.exports = {
       {
         vars: 'all',
         args: 'after-used',
-        ignoreRestSiblings: false
-      }
+        ignoreRestSiblings: false,
+      },
     ],
     '@typescript-eslint/member-delimiter-style': 0,
-    '@typescript-eslint/ban-ts-ignore': 'error',
+    '@typescript-eslint/ban-ts-comment': 'error',
     '@typescript-eslint/explicit-function-return-type': 'off', // disable default
     '@typescript-eslint/no-explicit-any': 'error',
     camelcase: 'off',
-    '@typescript-eslint/camelcase': ['warn']
+    '@typescript-eslint/naming-convention': [
+      'warn',
+      {
+        selector: 'variable',
+        format: ['camelCase'],
+      },
+    ],
   },
   overrides: [
     {
       // enable the rule specifically for TypeScript files
       files: ['*.ts', '*.tsx', '*.vue'],
       rules: {
-        '@typescript-eslint/explicit-function-return-type': ['error']
-      }
+        '@typescript-eslint/explicit-function-return-type': ['error'],
+      },
     },
     {
       // allow explicit any in these files and missing return type
@@ -48,12 +54,12 @@ module.exports = {
         'getters.ts',
         'repository.ts',
         '*.repository.ts',
-        'test/**/*'
+        'test/**/*',
       ],
       rules: {
         '@typescript-eslint/no-explicit-any': 'off',
-        '@typescript-eslint/explicit-function-return-type': ['off']
-      }
-    }
-  ]
+        '@typescript-eslint/explicit-function-return-type': ['off'],
+      },
+    },
+  ],
 }

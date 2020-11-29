@@ -14,9 +14,9 @@ const GLOBAL_STORE = namespace('global')
 @Component({
   head() {
     return {
-      title: 'Home'
+      title: 'Home',
     }
-  }
+  },
 })
 export default class Index extends Vue {
   @GLOBAL_STORE.Action('setTitle') global_set_title!: (payload: string) => void

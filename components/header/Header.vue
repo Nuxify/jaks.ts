@@ -26,7 +26,7 @@
       </v-btn>
 
       <v-menu offset-y min-width="100vw">
-        <template v-slot:activator="{ on, attrs }">
+        <template #activator="{ on, attrs }">
           <v-btn
             color="primary"
             x-large
@@ -49,7 +49,7 @@
               class="ml-3 my-3"
               :class="[
                 { 'primary--text': activePage == page.name },
-                { 'accent--text': activePage != page.name }
+                { 'accent--text': activePage != page.name },
               ]"
               >{{ page.title }}
               <div
@@ -61,9 +61,7 @@
         </v-list>
       </v-menu>
       <v-spacer></v-spacer>
-      <v-btn color="primary" large class="font-weight-bold">
-        Login
-      </v-btn>
+      <v-btn color="primary" large class="font-weight-bold"> Login </v-btn>
     </v-app-bar>
   </div>
 </template>
@@ -77,10 +75,6 @@ interface Item {
   to: string
 }
 
-interface Route {
-  name: string
-}
-
 @Component
 export default class Header extends Vue {
   //  * Data
@@ -88,18 +82,18 @@ export default class Header extends Vue {
     {
       name: 'index',
       title: 'Home',
-      to: '/'
+      to: '/',
     },
     {
       name: 'users',
       title: 'Users',
-      to: '/users'
+      to: '/users',
     },
     {
       name: 'about',
       title: 'About',
-      to: '/about'
-    }
+      to: '/about',
+    },
   ]
 
   // * * Computed
@@ -107,13 +101,13 @@ export default class Header extends Vue {
    * return currect active page
    */
   get activePage(): string {
-    if (this.$route.name === undefined || this.$route.name === null) {
+    if (this.$route?.name === undefined || this.$route?.name === null) {
       return ''
     }
-    if (this.$route.name === 'users-id') {
+    if (this.$route?.name === 'users-id') {
       return 'users'
     }
-    return this.$route.name
+    return this.$route?.name
   }
 
   // * * Methods
