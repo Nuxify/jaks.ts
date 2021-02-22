@@ -76,7 +76,11 @@ export default {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: '~/plugins/repository' }],
+  plugins: [
+    { src: '~/plugins/repository' },
+    { src: '~/plugins/components/vue-slick-carousel' },
+    { src: '~/plugins/components/icons' },
+  ],
   /*
    ** Nuxt.js dev-modules
    */
@@ -95,6 +99,7 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt-community/dotenv-module
     '@nuxtjs/dotenv',
+    ['vue-scrollto/nuxt', { duration: 1000 }],
   ],
   /**
    *  PWA module configuration

@@ -24,14 +24,17 @@
     }
   },
   "dependencies": {
+    "@mdi/js": "^5.9.55",
     "@nuxt/typescript-runtime": "^2.0.0",
     "@nuxtjs/axios": "^5.11.0",
     "@nuxtjs/dotenv": "^1.4.0",
     "@nuxtjs/pwa": "^3.0.0-0",
     "@types/jest": "^26.0.15",
+    "babel-core": "^7.0.0-bridge.0",
     "nuxt": "^2.13.2",
     "nuxt-property-decorator": "^2.7.2",
-    "babel-core": "^7.0.0-bridge.0"
+    "vue-scrollto": "^2.20.0",
+    "vue-slick-carousel": "^1.0.6"
   },
   "devDependencies": {
     "@nuxt/types": "^2.13.2",

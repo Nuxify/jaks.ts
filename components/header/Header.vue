@@ -8,6 +8,16 @@
       flat
       color="white"
     >
+      <nuxt-link to="/">
+        <img
+          src="/logo/Nuxify-Logo-withText.svg"
+          lazy-src="/logo/Nuxify-Logo-withText.svg"
+          alt="Nuxify Logo"
+          width="180"
+          height="66"
+        />
+      </nuxt-link>
+      <v-spacer />
       <v-btn
         v-for="page in pages"
         :key="page.icon"
