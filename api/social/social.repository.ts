@@ -15,9 +15,7 @@ export default ($axios: AxiosInstance) => ({
       .then((response: AxiosResponse<UserResponseInterface[]>) => {
         const { data } = response
 
-        const users: UserResponseInterface[] = data
-
-        return users
+        return data
       })
       .catch((error: AxiosError) => {
         throw error
@@ -34,9 +32,8 @@ export default ($axios: AxiosInstance) => ({
       .get(`${API_URL}/${id}`)
       .then((response: AxiosResponse<UserResponseInterface>) => {
         const { data } = response
-        const user: UserResponseInterface = data
 
-        return user
+        return data
       })
       .catch((error: AxiosError) => {
         throw error
