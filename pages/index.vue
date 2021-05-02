@@ -20,6 +20,11 @@ const GLOBAL_STORE = namespace('global')
 })
 export default class Index extends Vue {
   @GLOBAL_STORE.Action('setTitle') global_set_title!: (payload: string) => void
+
+  mounted(): void {
+    // print values using runtime config
+    console.log('APP_NAME', this.$config.appName)
+  }
 }
 </script>
 

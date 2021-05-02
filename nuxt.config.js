@@ -1,28 +1,25 @@
 const DEBUG = process.env.NODE_ENV !== 'production'
-const APP_NAME = 'Nuxify'
-const APP_DESCRIPTION = "Writing Software Like It's Ours"
-const APP_URL = 'http://localhost:3000'
-
-const API_URL = DEBUG
-  ? 'https://jsonplaceholder.typicode.com'
-  : 'https://jsonplaceholder.typicode.com'
 
 export default {
-  target: 'static',
   ssr: true,
+  target: 'static',
+  server: {
+    port: process.env.APP_PORT,
+    host: process.env.APP_HOST,
+  },
   /*
    ** Headers of the page
    */
   head: {
-    titleTemplate: '%s - ' + APP_NAME,
-    title: APP_NAME || '',
+    titleTemplate: '%s - ' + process.env.APP_NAME,
+    title: process.env.APP_NAME || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: APP_DESCRIPTION || '',
+        content: process.env.APP_DESCRIPTION || '',
       },
       // OG Tag setup
       // https://vue-meta.nuxtjs.org/api/#meta
@@ -33,27 +30,27 @@ export default {
       },
       {
         property: 'og:title',
-        content: APP_NAME,
+        content: process.env.APP_NAME,
         vmid: 'og:title',
       },
       {
         property: 'og:description',
-        content: APP_DESCRIPTION,
+        content: process.env.APP_DESCRIPTION,
         vmid: 'og:description',
       },
       {
         property: 'og:site_name',
-        content: APP_URL,
+        content: process.env.APP_URL,
         vmid: 'og:site_name',
       },
       {
         property: 'og:url',
-        content: APP_URL,
+        content: process.env.APP_URL,
         vmid: 'og:url',
       },
       {
         property: 'og:image',
-        content: APP_URL + '/icon.png',
+        content: process.env.APP_URL + '/icon.png',
         vmid: 'og:image',
       },
     ],
@@ -97,23 +94,31 @@ export default {
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
-    // Doc: https://github.com/nuxt-community/dotenv-module
-    '@nuxtjs/dotenv',
     ['vue-scrollto/nuxt', { duration: 1000 }],
   ],
+  /**
+   * Public runtime configs
+   */
+  publicRuntimeConfig: {
+    appName: process.env.APP_NAME,
+  },
+  /**
+   * Private runtime configs
+   */
+  privateRuntimeConfig: {},
   /**
    *  PWA module configuration
    *  https://pwa.nuxtjs.org/setup.html
    */
   pwa: {
     meta: {
-      title: APP_NAME,
+      title: process.env.APP_NAME,
     },
     manifest: {
-      name: APP_NAME,
-      short_name: APP_NAME,
-      description: APP_DESCRIPTION,
-      start_url: APP_URL,
+      name: process.env.APP_NAME,
+      short_name: process.env.APP_NAME,
+      description: process.env.APP_DESCRIPTION,
+      start_url: process.env.APP_URL,
       lang: 'en',
     },
   },
@@ -122,7 +127,7 @@ export default {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    baseURL: API_URL,
+    baseURL: process.env.API_URL,
     debug: DEBUG,
   },
   /*
