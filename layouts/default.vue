@@ -10,7 +10,7 @@
         :color="global_alert.variant"
         class="alert-message white--text"
       >
-        {{ global_alert.message }}
+        <h1>{{ global_alert.message }}</h1>
         <v-btn fab x-small depressed text @click="global_set_alert(false)">
           <v-icon color="white"> mdi-close </v-icon>
         </v-btn>
@@ -52,21 +52,33 @@ export default class Default extends Vue {
   left: 0;
   z-index: 9999;
   .alert-message {
-    position: relative;
-    font-size: 18px;
-    text-align: center;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
     margin-bottom: 0;
-    padding: 10px 0;
+    padding: 10px 20px !important;
+    h1 {
+      font-size: 18px;
+      text-align: center;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      padding: 0 40px !important;
+    }
     .v-btn {
       position: absolute;
       right: 1%;
       top: 50%;
       -ms-transform: translateY(-50%);
       transform: translateY(-50%);
+    }
+  }
+}
+
+@media (max-device-width: 599px) {
+  .alert--container {
+    .alert-message {
+      h1 {
+        padding: 5px 20px !important;
+      }
     }
   }
 }
