@@ -95,11 +95,6 @@ export default class Header extends Vue {
       to: '/',
     },
     {
-      name: 'users',
-      title: 'Users',
-      to: '/users',
-    },
-    {
       name: 'about',
       title: 'About',
       to: '/about',
