@@ -8,6 +8,7 @@
 
 <script lang="ts">
 import { Component, Vue, namespace } from 'nuxt-property-decorator'
+import { AlertInterface } from '~/store/global/state.types'
 
 const GLOBAL_STORE = namespace('global')
 
@@ -19,11 +20,20 @@ const GLOBAL_STORE = namespace('global')
   },
 })
 export default class Index extends Vue {
-  @GLOBAL_STORE.Action('setTitle') global_set_title!: (payload: string) => void
+  @GLOBAL_STORE.State('alert') global_alert!: AlertInterface
+  @GLOBAL_STORE.Action('setAlert')
+  global_set_alert!: (payload: AlertInterface) => void
 
   mounted(): void {
     // print values using runtime config
     console.log('APP_NAME', this.$config.appName)
+
+    // Alert
+    this.global_set_alert({
+      state: true,
+      message: 'Sample alert message here.',
+      variant: 'success',
+    })
 
     // Toast notification
     this.$toast.info('Hello')

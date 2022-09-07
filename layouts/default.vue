@@ -2,15 +2,32 @@
   <v-app id="app">
     <Header />
     <nuxt />
+    <!-- Alert pop-up -->
+    <div class="alert--container">
+      <v-alert
+        v-if="global_alert.state"
+        tile
+        :color="global_alert.variant"
+        class="alert-message white--text"
+      >
+        {{ global_alert.message }}
+        <v-btn fab x-small depressed text @click="global_set_alert(false)">
+          <v-icon color="white"> mdi-close </v-icon>
+        </v-btn>
+      </v-alert>
+    </div>
     <Footer />
   </v-app>
 </template>
 
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator'
+import { Component, Vue, namespace } from 'nuxt-property-decorator'
 
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
+import { AlertInterface } from '~/store/global/state.types'
+
+const GLOBAL_STORE = namespace('global')
 
 @Component({
   components: {
@@ -18,5 +35,39 @@ import { Header } from '~/components/header'
     Footer,
   },
 })
-export default class Default extends Vue {}
+export default class Default extends Vue {
+  @GLOBAL_STORE.State('alert') global_alert!: AlertInterface
+  @GLOBAL_STORE.Action('setAlert')
+  global_set_alert!: (payload: AlertInterface) => void
+
+  mounted(): void {}
+}
 </script>
+
+<style lang="scss" scoped>
+.alert--container {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  z-index: 9999;
+  .alert-message {
+    position: relative;
+    font-size: 18px;
+    text-align: center;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    margin-bottom: 0;
+    padding: 10px 0;
+    .v-btn {
+      position: absolute;
+      right: 1%;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateY(-50%);
+    }
+  }
+}
+</style>
