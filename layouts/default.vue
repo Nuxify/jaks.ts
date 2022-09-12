@@ -40,11 +40,15 @@ export default class Default extends Vue {
   global_set_alert!: (payload: AlertInterface) => void
 
   @Watch('global_alert')
-  onAlertChange(val: boolean): void {
-    if (val) {
+  onAlertChange(): void {
+    if (this.global_alert.state) {
+      if (!this.global_alert.dismiss) {
+        return
+      }
+
       setTimeout(() => {
         this.global_set_alert({ state: false })
-      }, 10000)
+      }, this.global_alert.timeout)
     }
   }
 

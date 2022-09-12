@@ -5,6 +5,8 @@ const State: StateInterface = {
     state: false,
     message: '',
     variant: '',
+    dismiss: false,
+    timeout: 3000,
   },
   title: '',
 }
