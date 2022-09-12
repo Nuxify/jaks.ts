@@ -11,7 +11,7 @@
       :pause-on-dots-hover="false"
       :pause-on-focus="false"
       :pause-on-hover="false"
-      :lazyLoad="true"
+      :lazy-load="true"
       class="my-12 pt-12"
     >
       <div v-for="(item, i) in ImageList" :key="i" class="justify-center">
