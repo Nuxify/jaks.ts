@@ -21,8 +21,7 @@
 </template>
 
 <script lang="ts">
-import { Component, Vue, namespace } from 'nuxt-property-decorator'
-
+import { Component, Vue, namespace, Watch } from 'nuxt-property-decorator'
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
 import { AlertInterface } from '~/store/global/state.types'
@@ -39,6 +38,15 @@ export default class Default extends Vue {
   @GLOBAL_STORE.State('alert') global_alert!: AlertInterface
   @GLOBAL_STORE.Action('setAlert')
   global_set_alert!: (payload: AlertInterface) => void
+
+  @Watch('global_alert')
+  onAlertChange(val: boolean): void {
+    if (val) {
+      setTimeout(() => {
+        this.global_set_alert({ state: false })
+      }, 10000)
+    }
+  }
 
   mounted(): void {}
 }
