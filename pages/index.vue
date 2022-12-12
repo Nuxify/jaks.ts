@@ -96,10 +96,4 @@ export default class Index extends Vue {
 .home__container {
   max-width: 1440px;
 }
-.text-line {
-  overflow: hidden;
-}
-.text-line p {
-  overflow: hidden;
-}
 </style>
