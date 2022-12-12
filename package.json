@@ -33,6 +33,7 @@
     "@types/jest": "^26.0.15",
     "babel-core": "^7.0.0-bridge.0",
     "nuxt": "^2.15.4",
+    "nuxt-gsap-module": "^1.7.2",
     "nuxt-property-decorator": "^2.7.2",
     "regenerator-runtime": "^0.13.7",
     "vue-scrollto": "^2.20.0",
