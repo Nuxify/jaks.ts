@@ -49,11 +49,9 @@ interface ErrorResponse {
   },
 })
 export default class Error extends Vue {
-  // props
   @Prop({ default: null })
   error!: ErrorResponse
 
-  // declare variables
   pageNotFound: string = '404'
   otherError: string = 'An error occurred'
 }
