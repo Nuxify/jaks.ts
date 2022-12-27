@@ -56,6 +56,7 @@ module.exports = {
         '*.repository.ts',
         'test/**/*',
         '*.d.ts',
+        'theme.ts',
       ],
       rules: {
         '@typescript-eslint/no-explicit-any': 'off',
