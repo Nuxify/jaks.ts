@@ -11,8 +11,5 @@ declare module 'vue/types/vue' {
     }
     // nuxt runtime
     $config: any
-    $Flip: any
-    $gsap: any
-    $ScrollTrigger: any
   }
 }
