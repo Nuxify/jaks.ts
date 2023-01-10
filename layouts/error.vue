@@ -74,7 +74,6 @@ export default class Error extends Vue {
           font-size: 100px;
           color: var(--theme-color-primary);
           line-height: 80px;
-          font-weight: 400;
         }
         h2 {
           font-size: 14px;
