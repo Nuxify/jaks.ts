@@ -1,5 +1,5 @@
 <template>
-  <v-app :style="$theme.variables">
+  <v-app>
     <nuxt />
   </v-app>
 </template>

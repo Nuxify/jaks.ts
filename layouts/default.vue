@@ -1,5 +1,5 @@
 <template>
-  <v-app id="app" :style="$theme.variables">
+  <v-app id="app">
     <Header />
     <nuxt />
     <!-- Alert pop-up -->
