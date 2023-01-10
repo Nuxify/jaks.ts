@@ -6,7 +6,6 @@ declare module 'vue/types/vue' {
       GetUsers: () => Promise<UserResponseInterface[]>
       GetUserByID: (id: number) => Promise<UserResponseInterface>
     }
-
     // nuxt runtime
     $config: any
   }
