@@ -2,7 +2,7 @@
   "name": "jak.ts",
   "version": "1.0.0",
   "description": "A minimalistic Nuxt Jamstack starter template using TypeScript, Vuetify, and API Repository Pattern. Jaks!",
-  "author": "Karl Anthony Baluyot",
+  "author": "Nuxify Inc.",
   "private": true,
   "scripts": {
     "dev": "nuxt",
