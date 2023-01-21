@@ -8,6 +8,7 @@
 
 <script lang="ts">
 import { Component, Vue, namespace } from 'nuxt-property-decorator'
+import { LsKeys } from '~/api/localstorage'
 import { AlertInterface } from '~/store/global/state.types'
 
 const GLOBAL_STORE = namespace('global')
@@ -34,8 +35,12 @@ export default class Index extends Vue {
       message: 'Sample alert message here.',
       variant: 'success',
       dismiss: true,
-      timeout: 10000,
+      timeout: 3000,
     })
+
+    // store in local storage
+    console.log(LsKeys.LAST_KNOWN_MESSAGE)
+    this.$localStorageRepository.SetItem(LsKeys.LAST_KNOWN_MESSAGE, 'Hello')
 
     // Toast notification
     this.$toast.info('Hello')
