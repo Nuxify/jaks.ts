@@ -105,7 +105,6 @@ export default {
     // Doc: https://github.com/nuxt-community/stylelint-module
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
-    'vue-toastification/nuxt',
   ],
   /*
    ** Nuxt.js modules
@@ -149,23 +148,6 @@ export default {
   axios: {
     baseURL: process.env.API_URL,
     debug: DEBUG,
-  },
-  toast: {
-    transition: 'Vue-Toastification__fade',
-    maxToasts: 20,
-    newestOnTop: true,
-    position: 'bottom-left',
-    timeout: 5000,
-    closeOnClick: true,
-    pauseOnFocusLoss: true,
-    pauseOnHover: true,
-    draggable: false,
-    draggablePercent: 0.6,
-    showCloseButtonOnHover: true,
-    hideProgressBar: true,
-    closeButton: 'button',
-    icon: true,
-    rtl: false,
   },
   /*
    ** vuetify module configuration

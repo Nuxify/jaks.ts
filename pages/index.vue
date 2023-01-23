@@ -41,9 +41,6 @@ export default class Index extends Vue {
     // store in local storage
     console.log(LsKeys.LAST_KNOWN_MESSAGE)
     this.$localStorageRepository.SetItem(LsKeys.LAST_KNOWN_MESSAGE, 'Hello')
-
-    // Toast notification
-    this.$toast.info('Hello')
   }
 }
 </script>
