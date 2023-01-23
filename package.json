@@ -35,8 +35,7 @@
     "nuxt": "^2.15.4",
     "nuxt-property-decorator": "^2.7.2",
     "regenerator-runtime": "^0.13.7",
-    "vue-scrollto": "^2.20.0",
-    "vue-slick-carousel": "^1.0.6"
+    "vue-scrollto": "^2.20.0"
   },
   "devDependencies": {
     "@nuxt/types": "^2.13.2",

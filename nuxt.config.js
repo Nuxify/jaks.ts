@@ -94,7 +94,6 @@ export default {
    */
   plugins: [
     { src: '~/plugins/repository' },
-    { src: '~/plugins/components/vue-slick-carousel' },
     { src: '~/plugins/components/icons' },
   ],
   /*
