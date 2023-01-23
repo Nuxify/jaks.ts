@@ -61,6 +61,24 @@ export default {
         href: 'https://fonts.googleapis.com/css?family=Poppins&display=swap',
       },
     ],
+    script: [
+      {
+        type: 'text/javascript',
+        innerHTML: `
+          window.onerror = function(msg, url, line, col, error) {
+              if (
+                  msg === 'SyntaxError' &&
+                  error === "Loading chunk failed" &&
+                  !window.location.hash
+                  ) {
+                      window.location = window.location + '#refresh'
+                      window.location.reload()
+              }
+          }
+          `,
+        defer: true,
+      },
+    ],
   },
   /*
    ** Customize the progress-bar color
@@ -91,7 +109,6 @@ export default {
     '@nuxtjs/stylelint-module',
     '@nuxtjs/vuetify',
     'vue-toastification/nuxt',
-    'nuxt-gsap-module',
   ],
   /*
    ** Nuxt.js modules
@@ -152,13 +169,6 @@ export default {
     closeButton: 'button',
     icon: true,
     rtl: false,
-  },
-  gsap: {
-    /* Module Options */
-    extraPlugins: {
-      flip: true,
-      scrollTrigger: true,
-    },
   },
   /*
    ** vuetify module configuration

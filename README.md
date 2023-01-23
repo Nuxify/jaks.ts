@@ -2,8 +2,6 @@
 
 A minimalistic Nuxt Jamstack starter template using TypeScript, Vuetify, and API Repository Pattern. JAKS!
 
-&nbsp;
-
 ## Installation
 
 ```
@@ -42,14 +40,12 @@ cd dist/
 npx serve
 ```
 
-&nbsp;
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
 
 ## Contributing
 
 Made with ❤️ at [Nuxify](https://nuxify.tech)
 
-&nbsp;
 
-## License
-
-[MIT](https://choosealicense.com/licenses/mit/)

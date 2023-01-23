@@ -44,10 +44,6 @@ import { Component, Vue } from 'nuxt-property-decorator'
   },
 })
 export default class User extends Vue {
-  // * * Data
-  /**
-   * used only for head title meta
-   */
   name: string = ''
 }
 </script>
