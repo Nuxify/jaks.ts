@@ -25,10 +25,12 @@ import { SnackbarAlert } from '~/components'
 })
 export default class Default extends Vue {
   mounted(): void {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 3000)
-    })
+    if (process.client) {
+      this.$nextTick(() => {
+        this.$nuxt.$loading.start()
+        setTimeout(() => this.$nuxt.$loading.finish(), 3000)
+      })
+    }
   }
 }
 </script>
