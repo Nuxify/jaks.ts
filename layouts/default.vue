@@ -24,7 +24,7 @@ import { SnackbarAlert } from '~/components'
   },
 })
 export default class Default extends Vue {
-  mounted(): void {
+  beforeCreate(): void {
     if (process.client) {
       this.$nextTick(() => {
         this.$nuxt.$loading.start()
