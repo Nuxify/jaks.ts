@@ -2,57 +2,36 @@
   <v-app id="app">
     <Header />
     <nuxt />
+
     <!-- Alert pop-up -->
-    <div class="alert--container">
-      <v-alert
-        v-if="global_alert.state"
-        tile
-        :color="global_alert.variant"
-        class="alert-message white--text"
-      >
-        <h1>{{ global_alert.message }}</h1>
-        <v-btn fab x-small depressed text @click="global_set_alert(false)">
-          <v-icon color="white"> mdi-close </v-icon>
-        </v-btn>
-      </v-alert>
-    </div>
+    <SnackbarAlert />
+
     <Footer />
   </v-app>
 </template>
 
 <script lang="ts">
-import { Component, Vue, namespace, Watch } from 'nuxt-property-decorator'
+import { Component, Vue } from 'nuxt-property-decorator'
 import { Footer } from '~/components/footer'
 import { Header } from '~/components/header'
-import { AlertInterface } from '~/store/global/state.types'
-
-const GLOBAL_STORE = namespace('global')
+import { SnackbarAlert } from '~/components'
 
 @Component({
   components: {
     Header,
     Footer,
+    SnackbarAlert,
   },
 })
 export default class Default extends Vue {
-  @GLOBAL_STORE.State('alert') global_alert!: AlertInterface
-  @GLOBAL_STORE.Action('setAlert')
-  global_set_alert!: (payload: AlertInterface) => void
-
-  @Watch('global_alert')
-  onAlertChange(): void {
-    if (this.global_alert.state) {
-      if (!this.global_alert.dismiss) {
-        return
-      }
-
-      setTimeout(() => {
-        this.global_set_alert({ state: false })
-      }, this.global_alert.timeout)
+  beforeCreate(): void {
+    if (process.client) {
+      this.$nextTick(() => {
+        this.$nuxt.$loading.start()
+        setTimeout(() => this.$nuxt.$loading.finish(), 3000)
+      })
     }
   }
-
-  mounted(): void {}
 }
 </script>
 
