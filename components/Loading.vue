@@ -10,7 +10,7 @@
 import { Component, Vue } from 'nuxt-property-decorator'
 
 @Component
-export default class SnackbarAlert extends Vue {
+export default class Loading extends Vue {
   loading: boolean = false
 
   /**
