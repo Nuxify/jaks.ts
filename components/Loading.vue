@@ -48,17 +48,6 @@ export default class Loading extends Vue {
     display: flex;
     justify-content: center;
     align-items: center;
-    img {
-      animation: beat 0.75s infinite alternate;
-      transform-origin: center !important;
-    }
-
-    /* Heart beat animation */
-    @keyframes beat {
-      to {
-        transform: scale(1.4);
-      }
-    }
   }
 }
 </style>
