@@ -1,4 +1,4 @@
-import { ActionTree } from 'vuex'
+import type { ActionTree } from 'vuex'
 import { StateInterface } from './state.types'
 
 const Actions: ActionTree<StateInterface, () => void> = {
