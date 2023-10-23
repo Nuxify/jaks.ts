@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 const DEBUG = process.env.NODE_ENV !== 'production'
 
 export default {
@@ -113,6 +115,7 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/pwa',
     ['vue-scrollto/nuxt', { duration: 1000 }],
+    '@nuxtjs/dotenv',
   ],
   /**
    * Public runtime configs
