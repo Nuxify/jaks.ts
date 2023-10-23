@@ -1,4 +1,4 @@
-import { GetterTree } from 'vuex'
+import type { GetterTree } from 'vuex'
 import { StateInterface } from './state.types'
 
 const Getters: GetterTree<StateInterface, () => any> = {

@@ -1,4 +1,4 @@
-import { MutationTree } from 'vuex'
+import type { MutationTree } from 'vuex'
 import { StateInterface, AlertInterface } from './state.types'
 
 const Mutations: MutationTree<StateInterface> = {

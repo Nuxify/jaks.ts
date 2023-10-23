@@ -119,6 +119,7 @@ export default {
    */
   publicRuntimeConfig: {
     appName: process.env.APP_NAME,
+    appVersion: 'v1.0.0',
   },
   /**
    * Private runtime configs

@@ -10,24 +10,25 @@ import { AxiosInstance } from 'axios'
  *
  * @return
  */
-export default ($axios: AxiosInstance) => (resource: string): any => ({
-  index(): any {
-    return $axios.get(`${resource}`)
-  },
+export default ($axios: AxiosInstance) =>
+  (resource: string): any => ({
+    index(): any {
+      return $axios.get(`${resource}`)
+    },
 
-  show(id: string): any {
-    return $axios.get(`${resource}/${id}`)
-  },
+    show(id: string): any {
+      return $axios.get(`${resource}/${id}`)
+    },
 
-  create(payload: any): any {
-    return $axios.post(`${resource}`, payload)
-  },
+    create(payload: any): any {
+      return $axios.post(`${resource}`, payload)
+    },
 
-  update(id: string, payload: any): any {
-    return $axios.post(`${resource}/${id}`, payload)
-  },
+    update(id: string, payload: any): any {
+      return $axios.post(`${resource}/${id}`, payload)
+    },
 
-  delete(id: string): any {
-    return $axios.delete(`${resource}/${id}`)
-  },
-})
+    delete(id: string): any {
+      return $axios.delete(`${resource}/${id}`)
+    },
+  })
