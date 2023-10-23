@@ -62,5 +62,16 @@ module.exports = {
         '@typescript-eslint/explicit-function-return-type': ['off'],
       },
     },
+    {
+      files: [
+        'store/global/actions.ts',
+        'store/global/getters.ts',
+        'store/global/mutations.ts',
+        'types/vue-shims-tsx.d.ts',
+      ],
+      rules: {
+        'import/named': 'off',
+      },
+    },
   ],
 }
